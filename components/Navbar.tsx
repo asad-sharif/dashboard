@@ -13,15 +13,16 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Link from 'next/link.js'
 import { useTheme } from 'next-themes'
+import { SidebarTrigger } from './ui/sidebar'
 
 const Navbar = () => {
     const { setTheme } = useTheme()
 
     return (
-        <nav className='flex p-4 items-center justify-between'>
-            BRAND
+        <nav className='flex px-2 sm:px-4 py-4 items-center justify-between'>
+            ADMIN
 
-            <div className='flex items-center justify-between gap-4'>
+            <div className='flex items-center justify-between gap-2 sm:gap-4'>
                 <Link href=''>Dashboard</Link>
 
                 <DropdownMenu>
@@ -49,7 +50,7 @@ const Navbar = () => {
                     <DropdownMenuTrigger>
                         <Avatar>
                             <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>CN</AvatarFallback>
+                            <AvatarFallback>AS</AvatarFallback>
                         </Avatar>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent sideOffset={10}>
