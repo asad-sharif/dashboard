@@ -2,13 +2,6 @@
 import * as React from "react"
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import {
     ChartConfig,
     ChartContainer,
     ChartLegend,
@@ -16,13 +9,7 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
+
 export const description = "An interactive area chart"
 
 const chartData = [
@@ -164,7 +151,9 @@ const AppAreaChart = () => {
                         />
                     </linearGradient>
                 </defs>
+
                 <CartesianGrid vertical={false} />
+
                 <XAxis
                     dataKey="date"
                     tickLine={false}
@@ -185,13 +174,22 @@ const AppAreaChart = () => {
                     axisLine={true}
                     tickMargin={8}
                     minTickGap={32}
-                    // tickFormatter={(value) => {
-                    //     const date = new Date(value)
-                    //     return date.toLocaleDateString("en-US", {
-                    //         month: "short",
-                    //         day: "numeric",
-                    //     })
-                    // }}
+                    tickFormatter={(value) => '$' + value}
+                />
+
+                <ChartTooltip
+                    cursor={true}
+                    content={
+                        <ChartTooltipContent
+                            labelFormatter={(value) => {
+                                return new Date(value).toLocaleDateString("en-US", {
+                                    month: "short",
+                                    day: "numeric",
+                                })
+                            }}
+                            indicator="dot"
+                        />
+                    }
                 />
 
                 <Area
@@ -208,6 +206,7 @@ const AppAreaChart = () => {
                     stroke="var(--color-desktop)"
                     stackId="a"
                 />
+                <ChartLegend content={<ChartLegendContent />} />
             </AreaChart>
         </ChartContainer>
         //  </div>

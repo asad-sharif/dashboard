@@ -35,15 +35,15 @@ import {
 } from "@/components/ui/collapsible"
 
 const items = [
-  { title: "Home", url: "#", icon: Home },
-  { title: "Inbox", url: "#", icon: Inbox },
-  { title: "Calendar", url: "#", icon: Calendar },
-  { title: "Search", url: "#", icon: Search },
-  { title: "Analytics", url: "#", icon: BarChart3 },
-  { title: "Documents", url: "#", icon: FileText },
-  { title: "Users", url: "#", icon: Users },
-  { title: "Notifications", url: "#", icon: Bell },
-  { title: "Settings", url: "#", icon: Settings },
+  { title: "Dashboard", url: "/", icon: Home },
+  { title: "Messages", url: "/messages", icon: Inbox },
+  { title: "Calendar", url: "/calendar", icon: Calendar },
+  { title: "Search", url: "/search", icon: Search },
+  { title: "Analytics", url: "/analytics", icon: BarChart3 },
+  { title: "Reports", url: "/reports", icon: FileText },
+  { title: "Team", url: "/team", icon: Users },
+  { title: "Notifications", url: "/notifications", icon: Bell },
+  { title: "Settings", url: "/settings", icon: Settings },
 ]
 
 export function AppSidebar() {
@@ -75,7 +75,7 @@ export function AppSidebar() {
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
-                  {item.title === "Inbox" && <SidebarMenuBadge>12</SidebarMenuBadge>}
+                  {item.title === "Messages" && <SidebarMenuBadge>12</SidebarMenuBadge>}
                   {item.title === "Notifications" && <SidebarMenuBadge>5</SidebarMenuBadge>}
                 </SidebarMenuItem>
               ))}
