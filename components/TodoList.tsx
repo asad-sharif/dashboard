@@ -28,21 +28,25 @@ const tasks = Array.from({ length: 10 }, (_, i) => ({
 
 const TodoList = () => {
   const [date, setDate] = useState<Date | undefined>(new Date())
+  const [open, setOpen] = useState(false)
 
   return (
     <div>
-      <Popover>
+      <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild className='w-full my-2'>
           <Button>
             <CalendarIcon />
-            {date ? format(date, 'PP') : 'Pick a date'}
+            {date ? format(date, 'PPPP') : 'Pick a date'}
           </Button>
         </PopoverTrigger>
         <PopoverContent className='p-0 border-0 w-auto'>
           <Calendar
             mode="single"
             selected={date}
-            onSelect={setDate}
+            onSelect={date => {
+              setDate(date)
+              setOpen(false)
+            }}
             className="rounded-md border"
           />
         </PopoverContent>
@@ -50,7 +54,7 @@ const TodoList = () => {
 
       <ScrollArea className="h-[250px] px-2">
         {tasks.map((task, index) => (
-          <Card key={index} className='p-0 my-2 rounded-sm'>
+          <Card key={task.id} className='p-0 my-2 rounded-sm'>
             <CardContent className='flex items-center gap-2 p-2'>
               <Checkbox id={task.id} checked={task.id === 'task1' || task.id === 'task4'} />
               <Label htmlFor={task.id} className='text-xs text-muted-foreground'>{task.text}</Label>
