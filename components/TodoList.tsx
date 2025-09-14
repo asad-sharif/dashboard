@@ -56,7 +56,7 @@ const TodoList = () => {
         {tasks.map((task, index) => (
           <Card key={task.id} className='p-0 my-2 rounded-sm'>
             <CardContent className='flex items-center gap-2 p-2'>
-              <Checkbox id={task.id} checked={task.id === 'task1' || task.id === 'task4'} />
+              <Checkbox id={task.id} />
               <Label htmlFor={task.id} className='text-xs text-muted-foreground'>{task.text}</Label>
             </CardContent>
           </Card>
