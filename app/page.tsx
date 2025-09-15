@@ -18,12 +18,6 @@ const Home = () => {
         <AppPieChart />
       </div>
 
-      {/* <div className='bg-primary-foreground rounded-md p-4 flex flex-col items-start justify-center'>
-        <h2 className='mb-2 font-semibold text-lg'>Active Users</h2>
-        <span className='text-3xl font-bold'>1,245</span>
-        <span className='text-xs text-muted-foreground mt-1'>+5% this week</span>
-      </div> */}
-
       <div className='bg-primary-foreground rounded-md p-4 '>
         <h2 className='mb-2 font-semibold text-xl'>Todos</h2>
         <TodoList />        
