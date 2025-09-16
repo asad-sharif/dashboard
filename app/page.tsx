@@ -27,7 +27,6 @@ const Home = () => {
         <h2 className='mb-2 font-semibold text-xl'>Monthly Device Usage Trends</h2>
         <AppLineChart />
       </div>
-      {/* <div className='bg-primary-foreground rounded-md p-2'>6</div> */}
     </div>
   )
 }
